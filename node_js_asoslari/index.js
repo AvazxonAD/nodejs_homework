@@ -116,6 +116,7 @@ const server = http.createServer(async (req, res) => {
         if(book !== -1){
             parseData.splice(book, 1)
 
+            
             const jsonData = JSON.stringify(parseData, null, 2)
 
             fs.writeFile(fileName, jsonData, 'utf8', (err) => {
