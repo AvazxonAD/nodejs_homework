@@ -1,0 +1,65 @@
+<div class="container mb-5">
+    {{#if product}}
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card mb-5 mt-5">
+                <img src="http://localhost:3000/{{product.image}}" class="card-img-bottom"
+                    style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.title}}</h5>
+                    <p class="card-text">Description: {{product.discr}}</p>
+                    <p class="card-text">Amount: {{product.amount}}</p>
+                    <p class="card-text"><small class="text-muted">{{createdAt}}</small></p>
+                </div>
+                <div class="card-footer">
+                    <a href="/user/order/{{product._id}}" type="button" class="btn btn-success">Order</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card mt-3">
+                <div class="card-body">
+                    {{#if error}}
+                        <div class="alert alert-danger" style="text-align: center;" role="alert">
+                            {{error}}
+                        </div>
+                    {{/if}}
+                    <form action="/user/comment/{{product._id}}" method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control" name="email" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Add comment</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6 offset-3">
+            <div class="card mb-5 mt-5">
+                {{#if comments}}
+                    {{#each comments}}
+                        <hr>
+                        <div class="card-body">
+                            <h5 class="card-title">{{email}}</h5>
+                            <p class="card-text">Comment: {{comment}}</p>
+                            <p class="card-text">{{createdAt}}</p>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <div class="alert alert-dark" role="alert">
+                        No comments yet
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</div>

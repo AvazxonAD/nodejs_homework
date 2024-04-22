@@ -1,0 +1,45 @@
+<div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-3">
+                    <div class="card mb-5 mt-5 ">
+                        <div class="card-body">
+                            <h5 class="card-title">Statistics about admin</h5>
+                            <h5 class="card-title"> Admin Name : {{statistics.name}}</h5>
+                            <p class="card-text">Guaranteed money : {{statistics.sum}} $</p>
+                            <p class="card-text">Sold goods : {{statistics.soldOut}}</p>
+                            <p class="card-text">Unsold goods : {{statistics.soldNo}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 offset-3">
+                    <div class="card mb-5 mt-5">
+                        {{#if orders}}
+                            {{#each orders}}
+                            <img src="http://localhost:3000/{{image}}" class="card-img-bottom" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{title}}</h5>
+                                <p class="card-text">Description: {{discr}}</p>
+                                <p class="card-text">Amount: {{amount}}</p>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Customer</h5>
+                                <p class="card-text">Name: {{name}}</p>
+                                <p class="card-text">LastName: {{lastName}}</p>
+                                <p class="card-text">Phone: {{phone}}</p>
+                                <p class="card-text">Region: {{region}}</p>
+                                <p class="card-text"><small class="text-muted">The time you place your order : {{date}}</small></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="/admin/sell/{{_id}}" type="button" class="btn btn-success">Sold out</a>
+                                <a href="/admin/cancel/{{_id}}" type="button" class="btn btn-danger">Cancel</a>
+                            </div>
+                            {{/each}}
+                            {{else}}               
+                            <div class="alert alert-dark mt-5" role="alert">
+                                No orders yet
+                            </div>
+                        {{/if}}     
+                    </div>
+                </div>
+            </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        {{#if error}}
+            <div class="alert alert-danger" style="text-align: center;" role="alert">
+                {{error}}
+            </div>
+        {{/if}}
+        <div class="col-md-6 offset-3">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <form action="/admin/sell/post/{{product._id}}" method="post">
+                        <div class="mb-3">
+                            <label for="sum" class="form-label">Sum $ </label>
+                            <input type="number" class="form-control" name="sum" id="sum">
+                        </div>
+                        <div class="mb-3">
+                            <label for="soldOut" class="form-label">Sold out </label>
+                            <input type="number" class="form-control" name="soldOut" id="soldOut">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

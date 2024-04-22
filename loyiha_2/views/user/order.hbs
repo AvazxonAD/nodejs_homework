@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row">
+        {{#if error}}
+        <div class="alert alert-danger" style="text-align: center;" role="alert">
+            {{error}}
+        </div>
+        {{/if}}
+        {{#if product}}
+            {{#if amount}}
+                <div class="col-md-6 offset-3">
+                    <form action="/user/order/post/{{product._id}}" , method="post">
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" name="lastName" id="lastName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="name" class="form-control" name="name" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" name="phone" value="+998" id="phone">
+                        </div>
+                        <div class="form-floating">
+                            <select class="form-select" id="region" name="region" aria-label="Floating label select example">
+                            <option selected disabled>Choose your area</option>
+                            <option value="fargona">Farg'ona</option>
+                            <option value="samarqand">Samarqand</option>
+                            <option value="sirdaryo">Sirdaryo</option>
+                            </select>
+                            <label for="region">Select</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+                </div>
+            {{else}}
+                <div class="alert alert-dark" role="alert">
+                    This product is out of stock, please wait until the seller reduces the amount or choose another product
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+    {{#if products}}
+        {{#each products}}
+            <div class="row">
+                <div class="col-md-6 offset-3">
+                    <div class="card mb-5 mt-5">
+                        <img src="http://localhost:3000/{{image}}" class="card-img-bottom" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{title}}</h5>
+                            <p class="card-text">Description: {{discr}}</p>
+                            <p class="card-text">Amount: {{amount}}</p>
+                            <p class="card-text">Number of comments: {{commentLength}}</p>
+                            <p class="card-text"><small class="text-muted">{{createdAt}}</small></p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/admin/open/{{_id}}" type="button" class="btn btn-success">Open</a>
+                            <a href="/admin/update/{{_id}}" type="button" class="btn btn-warning">Update</a>
+                            <a href="/admin/delete/{{_id}}" type="button" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <div class="alert alert-dark mt-5" role="alert">
+            There are currently no products
+        </div>
+    {{/if}}
+</div>
